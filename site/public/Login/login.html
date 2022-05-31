@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ShopFlux</title>
+    <link rel="stylesheet" href="/Login/login.css">
+
+    <!-- Font do h1 Login -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    </head>
+
+<body>
+    <!-- Nosso cabeçalho -->
+    <!-- <div class="header">
+        <div class="container">
+
+            <img class="titulo" src="/assets/LOGO2.png" alt="">
+
+            <ul class="navBar">
+                <li class="atual"><a href="index.html">Home</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+
+    </div> -->
+
+
+
+    <div class="bgLogin">
+        
+        <div class="imgLogin">
+            <img src="/assets/imgLogin.png" alt="">
+        </div>
+
+        <div class="metadeLogin">
+            <div class="contLogin">
+                <h1> Login</h1>
+
+                <p>Faça login e comece e obtenha as melhores resenhas de games</p>
+    
+                <span class="txt">Login</span>
+                <input id="email_input">
+    
+                <br><br>
+    
+                <span class="txt">Senha</span>
+                <input type="password" id="senha_input">
+
+                <div class="check">
+                    <input type="checkbox">Lembre-me <span style="color: #AE4848;">esqueceu a senha?</span>
+                </div> 
+    
+                <p style="margin-top: 50px;"> <a href="/Cadastro/cadastro.html"> Cadastrar - se</a></p>
+            </div>
+            
+            <button class="btLogin">Entrar</button>
+
+            <div id="mensagem_erro"></div>
+        </div>
+        
+        
+
+       
+
+    </div>
+
+</body>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./site/public/home/index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
+
+</html>

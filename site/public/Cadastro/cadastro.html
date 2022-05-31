@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ShopFlux</title>
+    <link rel="stylesheet" href="/Cadastro/cadastro.css">
+
+    <!-- Font do h1 Login -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    </head>
+
+<body>
+    <!-- Nosso cabeçalho -->
+    <!-- <div class="header">
+        <div class="container">
+
+            <img class="titulo" src="/assets/LOGO2.png" alt="">
+
+            <ul class="navBar">
+                <li class="atual"><a href="index.html">Home</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+
+    </div> -->
+
+
+
+    <div class="bgLogin">
+        
+        <div class="metadeLogin">
+            <div class="contLogin">
+                <span class="txtCad">Nome Completo</span>
+                <input id="nome_input" placeholder="digite aqui">
+                <br><br>
+    
+                <span class="txtCad">E-mail</span>
+                <input id="email_input" placeholder="seuemail@email.com">
+                <br><br>
+    
+                <span class="txtCad">CPF</span>
+                <input id="cpf_input" placeholder="___.___.___-__">
+                <br><br>
+
+                <span class="txtCad">Senha</span>
+                <input type="password" id="senha_input" placeholder="*******">
+                <br><br>
+
+                <span class="txtCad">Confirmar Senha</span>
+                <input type="password" id="confirmar_senha_input" placeholder="*******">
+                <br><br>
+    
+                
+                <a href="/Login/login.html">Você já tem um cadastro?</a>
+            </div>
+            
+            <button class="btLogin" onclick="cadastrar()">Cadastrar</button>
+
+            <div id="mensagem_erro"></div>
+        </div>
+        
+
+        
+        <div class="imgLogin">
+            <img src="/assets/the.png" alt="">
+        </div>
+       
+
+    </div>
+
+</body>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var cpfVar = cpf_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmar_senha_input.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == '' || senhaVar == '') {
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                cpfServer: cpfVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+  
+
+</script>
+
+</html>
