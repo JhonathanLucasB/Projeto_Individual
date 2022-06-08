@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ShopFlux</title>
-    <link rel="stylesheet" href="/Cadastro/cadastro.css">
+    <link rel="stylesheet" href="css/cadastro.css">
 
     <!-- Font do h1 Login -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +79,8 @@
 
 <script>
     function cadastrar() {
-        aguardar();
+        // aguardar();
+        
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -92,11 +93,11 @@
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == '' || senhaVar == '') {
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-            finalizarAguardar();
+            // finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval( 5000)
         }
 
         // Enviando o valor da nova input
@@ -126,13 +127,13 @@
                 }, "2000")
                 
                 limparFormulario();
-                finalizarAguardar();
+                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;
