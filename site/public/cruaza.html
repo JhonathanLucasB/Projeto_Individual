@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras-Cruzadas</title>
+    <link rel="stylesheet" href="css/cruza.css">
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            
+            <img class="logo" src="/assets/LOGO2.png" alt="">
+
+            <ul class="navBar">
+                <li class="atual"><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+
+
+<div class="container">
+    <h1>Palavras-Cruzadas</h1>
+    <div id="butao">
+        <!-- <button class="button-jogo" id="button_start" onclick="start()">Começar o Jogo</button> -->
+        <button class="button-jogo" style="display: none;" id="button_jogar" onclick="destroyGrid()">Encerrar o Jogo</button>
+    </div>
+
+    <div class="cont2">
+
+    <table>
+        <tr> 
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: rgb(220, 208, 208); color: rgb(195, 29, 29); font-weight:bold; border: 2px solid green;" id="td_Q1">3</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_Q2" style="border: 2px solid rgb(24, 28, 24);">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_Q3" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_Q4" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_P5">14</td>
+            <td id="td_Q5" style="border: 2px solid green;">--</td>
+            <td id="td_R5" style="border: 2px solid green;">--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_Q6" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_F7">8</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_O7">11</td>
+            <td>--</td>
+            <td id="td_Q7" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_C8">4</td>
+            <td id="td_D8" style="border: 2px solid green;">--</td>
+            <td id="td_E8" style="border: 2px solid green;">--</td>
+            <td id="td_F8" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_O8" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_Q8" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_E9">6</td>
+            <td id="td_F9" style="border: 2px solid green;">--</td>
+            <td id="td_G9" style="border: 2px solid green;">--</td>
+            <td id="td_H9" style="border: 2px solid green;">--</td>
+            <td id="td_I9" style="border: 2px solid green;">--</td>
+            <td id="td_J9" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_N9">9</td>
+            <td id="td_O9" style="border: 2px solid green;">--</td>
+            <td id="td_P9" style="border: 2px solid green;">--</td>
+            <td id="td_Q9" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_C10">5</td>
+            <td id="td_D10" style="border: 2px solid green;">--</td>
+            <td id="td_E10" style="border: 2px solid green;">--</td>
+            <td id="td_F10" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_O10" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_Q10" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_D11">1</td>
+            <td>--</td>
+            <td id="td_F11" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_O11" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_Q11" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_D12" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_F12" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_I12">15</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_O12" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_Q12" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_D13" style="border: 2px solid green;">--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_E13">13</td>
+            <td id="td_F13" style="border: 2px solid green;">--</td>
+            <td id="td_G13" style="border: 2px solid green;">--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_H13">12</td>
+            <td id="td_I13" style="border: 2px solid green;">--</td>
+            <td id="td_J13" style="border: 2px solid green;">--</td>
+            <td id="td_K13" style="border: 2px solid green;">--</td>
+            <td id="td_L13" style="border: 2px solid green;">--</td>
+            <td id="td_M13" style="border: 2px solid green;">--</td>
+            <td id="td_N13" style="border: 2px solid green;">--</td>
+            <td id="td_O13" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_Q13" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_C14">2</td>
+            <td id="td_D14" style="border: 2px solid green;">--</td>
+            <td id="td_E14" style="border: 2px solid green;">--</td>
+            <td id="td_F14" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_I14" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_O14" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_Q14" style="border: 2px solid green;">--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_F15" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_I15" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_O15" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_F16" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_I16" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_M16">10</td>
+            <td id="td_N16" style="border: 2px solid green;">--</td>
+            <td id="td_O16" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_F17" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_I17" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_C18">16</td>
+            <td id="td_D18" style="border: 2px solid green;">--</td>
+            <td id="td_E18" style="border: 2px solid green;">--</td>
+            <td id="td_F18" style="border: 2px solid green;">--</td>
+            <td id="td_G18" style="border: 2px solid green;">--</td>
+            <td id="td_H18" style="border: 2px solid green;">--</td>
+            <td id="td_I18" style="border: 2px solid green;">--</td>
+            <td id="td_J18" style="border: 2px solid green;">--</td>
+            <td id="td_K18" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_F19" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_I19" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td style="background-color: black; color: white; font-weight:bold; border: 2px solid green;" id="td_B20">7</td>
+            <td id="td_C20" style="border: 2px solid green;">--</td>
+            <td id="td_D20" style="border: 2px solid green;">--</td>
+            <td id="td_E20" style="border: 2px solid green;">--</td>
+            <td id="td_F20" style="border: 2px solid green;">--</td>
+            <td id="td_G20" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td id="td_I20" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td id="td_F21" style="border: 2px solid green;">--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+        </tr>
+        
+    </table>
+
+</div>  
+
+
+<div style="text-align: center; margin-top: 20px; font-size: 20px;">
+    <h2>Questões</h2>
+
+    Questão <span id="num_question">1</span>: <span id="pergunta">Qual é a sigla para Central Process Unit?</span>
+    <input type="text" style="text-align: center;" placeholder="Resposta" id="input_resposta"> 
+
+  <span id="span_button"> <button onclick="verify()" style="font-size: 20px;">Verificar</button> </span>
+    
+</div>
+</div>  
+
+</div>
+
+    <!-- <div class="modal">
+
+        <h2>INSTRUÇÕES DO JOGO</h2>
+
+        <p id="resultadoDiv" style="text-align: center; font-size: 20px; display: flex; flex-direction: column; justify-content: center;">
+            Clique em "Começar o Jogo" para iniciar uma partida; <br><br>
+            Perguntas serão exibidas na parte inferior do quadro; <br><br>
+            A partida acabará quando as 16 questões forem respondidas; <br><br>
+            <span style="color: red;"> LEMBRE-SE:</span> Você só poderá errar <span style="color: red; font-size: 30px;">2 </span> vezes.
+        </p>
+
+    </div> -->
+
+</body>
+</html>

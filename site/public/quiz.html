@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/quiz.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            
+            <img class="logo" src="/assets/LOGO2.png" alt="">
+
+            <ul class="navBar">
+                <li class="atual"><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+
+        
+        <div id="Modal_modalidade">
+            <h1>Olá gamer seja muito bem vindo!</h1>
+        
+    
+            Informe o seu nome: <input id="ipt_Nome"> <br>
+            <p>Escolha sua modalidade preferida e se divirta</p>
+    
+    
+            <button onclick="ir_quiz()">Quiz</button>
+            <button onclick="ir_cruzadinha()" >Cruzadinha</button>
+        </div>
+    
+    
+        <div id="modal_cruzadinha" style="display: none;">
+    
+            <h2>INSTRUÇÕES DO JOGO</h2>
+    
+            <p class="avisoPartida" >
+                Clique em "começar" para iniciar uma partida; <br><br>
+                Perguntas serão exibidas na parte inferior do quadro; <br><br>
+                A partida acabará quando as 16 questões forem respondidas; <br><br>
+                <span style="color: red;"> LEMBRE-SE:</span> Você só poderá errar <span style="color: red; font-size: 30px;">2 </span> vezes. <br>
+    
+                <button class="btVoltarModalidade" onclick="voltarModalidade()">Voltar</button>
+                <button class="btVoltarModalidade" onclick="comecarCruzada()"> <a href="cruaza.html"> Começar</a></button>
+            </p>
+    
+        </div>
+    </div>  
+
+
+    <script>
+        function ir_cruzadinha() {
+            Modal_modalidade.style.display = 'none';
+            modal_cruzadinha.style.display = 'block';
+        }
+        
+        function voltarModalidade() {
+            modal_cruzadinha.style.display = 'none';
+            Modal_modalidade.style.display = 'block';
+        }
+
+        function ir_quiz() {
+            // Modal_modalidade.style.display = 'none';
+            // modal_cruzadinha.style.display = 'block';
+        }
+
+        function voltarQuiz() {
+            // modal_cruzadinha.style.display = 'none';
+            // Modal_modalidade.style.display = 'block';
+        }
+
+        
+
+        function comecarCruzada() {
+            
+        }
+
+
+
+
+    </script>
+</body>
+</html>
