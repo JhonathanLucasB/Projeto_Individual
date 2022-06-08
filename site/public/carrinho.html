@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/carrinho.css">
+    <title>Carrinho</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header">
+            <div class="container">
+                
+                <img class="logo" src="/assets/LOGO2.png" alt="">
+    
+                <ul class="navBar">
+                    <li class="atual"><a href="index.html">Home</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="carrinho.html">Carrinho</a></li>
+                </ul>
+            </div>
+    
+           
+        </div>  
+    </div>  
+
+    <div>
+  
+
+
+    <table class="tabela1" >
+        <tr>
+          <th>Item</th>
+          <th>Código</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Valor</th>
+          <th>Valor Total</th>
+          <th>Adicionar ao carrinho</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>214</td>
+          <td id="produto">Jogo 1</td>
+          <td><input type="number" id="quantidade" onkeyup="cadastrar('valorFixo')"></td>
+          <td><span id='valorFixo'>214</span> </td>
+          <td><span id="valor_total"></span> </td>
+
+          <td> <button onclick="cadastrar('cad')">Adicionar</button> </td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>210</td>
+          <td >Jogo 1</td>
+          <td><input type="number" id="quantidade2" onkeyup="cadastrar('valorFixo2')"></td>
+          <td><span id='valorFixo2'>214</span> </td>
+          <td><span id="valor_total2"></span> </td>
+
+          <td> <button onclick="cadastrar2('cad')">Adicionar</button> </td>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>214</td>
+            <td>Jogo 3</td>
+            <td><input type="number"></td>
+            <td>214</td>
+            <td> <button>Adicionar</button> </td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>214</td>
+          <td>Jogo 3</td>
+          <td><input type="number"></td>
+          <td>214</td>
+          <td> <button>Adicionar</button> </td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>214</td>
+        <td>Jogo 3</td>
+        <td><input type="number"></td>
+        <td>214</td>
+        <td> <button>Adicionar</button> </td>
+    </tr>
+
+    <tr>
+      <td>1</td>
+      <td>214</td>
+      <td>Jogo 3</td>
+      <td><input type="number"></td>
+      <td>214</td>
+      <td> <button>Adicionar</button> </td>
+  </tr>
+
+      </table>
+
+
+    <table class="tabela" style="display: none;">
+        <tr>
+          <th>Item</th>
+          <th>Código</th>
+          <th>Produto</th> 
+          <th>Quantidade</th>
+          <th>Valor</th>
+          <th>Total</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>214</td>
+          <td>Jogo 1</td>
+          <td>1</td>
+          <td>R$ 22,50</td>
+          <td>--</td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>304</td>
+            <td>Jogo 2</td>
+            <td>1</td>
+            <td>R$ 28,50</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>454</td>
+            <td>Jogo 3</td>
+            <td>2</td>
+            <td>R$ 12,50</td>
+            <td>--</td>
+        </tr>
+      </table>
+            
+
+      <script>
+        var vtjogos = ['jogo 1', 'jogo 2', 'jogo 3'];
+        var vtQuantidade = [];
+        var vtValor = [];
+        
+        function cadastrar(final) {
+          
+          if(final == 'valorFixo'){
+
+            var quantidadekjk = quantidade.value;
+            var valorTotal = Number(valorFixo.textContent);
+            var total = Number(valorTotal * quantidadekjk);
+
+            valor_total.innerHTML = `R$ ${(total).toFixed(2)}` ;
+          } 
+
+          if (final == 'valorFixo2') {
+            var quantidade2 = quantidade2.value;
+            var valorTotal2 = Number(valorFixo2.textContent);
+            var total2 = Number(valorTotal2 * quantidade2);
+            
+            valor_total2.innerHTML = `R$ ${(total2).toFixed(2)}`;
+          }
+          
+          vtQuantidade.push(quantidadekjk);
+          vtValor.push(total);
+          }
+
+          function name(params) {
+            
+          }
+      </script>
+
+   
+</body>
+    <!-- console.log('Quantidade ' + quantidadekjk)
+
+    console.log('Text contentl' + valorTotal)
+    console.log(typeof valorTotal);
+
+    
+    console.log('Total ' + total) -->
+</html>
